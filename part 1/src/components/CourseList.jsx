@@ -38,9 +38,7 @@ export const course = [
 export default function CourseList() {
   return (
     <div className="course-list">
-      {course.map((course) => {
-        return <CourseCard key={course.id}/>;
-      })}
+      {course.map((course) => <CourseCard key={course.id} course={course}/>)}
     </div>
   );
 }
