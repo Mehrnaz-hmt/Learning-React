@@ -19,14 +19,22 @@ const tabData = [
 ];
 
 function App() {
+
+  const handleActiveTab = (id) => {
+    console.log({id});
+  }
+
   const activeTab = 2;
   return (
     <div className="tab">
       <div className="tab__header">
         {tabData.map((tab) => (
-          <button 
-          key={tab.id}
-          className = {activeTab === tab.id ? "active" : ""} 
+          <button
+            //  onMouseEnter={() => alert("Mouse Entered!!")}
+            //  onMouseDown={() => alert ("Mouse Entered!")}
+             onClick={() => handleActiveTab(tab.id)}
+            key={tab.id}
+            className={activeTab === tab.id ? "active" : ""}
           >
             <span>{tab.title}</span>
             <span className="tab-indicator"></span>
