@@ -19,12 +19,12 @@ const tabData = [
 ];
 
 function App() {
+  const [activeTab, setActiveTab] = useState(2); //[state,setState]
 
   const handleActiveTab = (id) => {
-    console.log({id});
-  }
+    setActiveTab(id);
+  };
 
-  const activeTab = 2;
   return (
     <div className="tab">
       <div className="tab__header">
@@ -32,7 +32,7 @@ function App() {
           <button
             //  onMouseEnter={() => alert("Mouse Entered!!")}
             //  onMouseDown={() => alert ("Mouse Entered!")}
-             onClick={() => handleActiveTab(tab.id)}
+            onClick={() => handleActiveTab(tab.id)}
             key={tab.id}
             className={activeTab === tab.id ? "active" : ""}
           >
