@@ -24,13 +24,17 @@ const tabData = [
 function App() {
   const [activeTab, setActiveTab] = useState(2); //[state,setState]
   const [isOpen, setIsOpen] = useState(true);
+  const [counter,setCount] = useState(0)
 
   const handleActiveTab = (id) => {
     setActiveTab(id);
+    setCount((c) => c + 1);
+    setCount((c) => c + 1);
   };
 
   const handleOpen = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((isOpen) => !isOpen );
+   
   };
 
   return (
@@ -43,8 +47,6 @@ function App() {
                 <div className="tab__header">
                   {tabData.map((tab) => (
                     <button
-                      //  onMouseEnter={() => alert("Mouse Entered!!")}
-                      //  onMouseDown={() => alert ("Mouse Entered!")}
                       onClick={() => handleActiveTab(tab.id)}
                       key={tab.id}
                       className={activeTab === tab.id ? "active" : ""}
@@ -56,13 +58,13 @@ function App() {
                 </div>
 
                 <div className="tab__content">
-                  {tabData[activeTab - 1].content}
+                  {tabData[activeTab - 1].content} - {counter}
                 </div>
               </div>
             ) : (
               <p>Cloced</p>
             )
-          }
+          } 
       
       </div>
     </div>
